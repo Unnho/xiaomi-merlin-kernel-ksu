@@ -41,7 +41,8 @@ jobs:
     - name: Download Clang Toolchain
       run: |
         mkdir clang
-        git clone https://github.com/kdrag0n/proton-clang.git -b master --depth=1 clang
+        cd clang
+        bash <(curl -s "https://raw.githubusercontent.com/Neutron-Toolchains/antman/main/antman") -S
     - name: Download mkbootimg tools
       if: env.MAKE_BOOT_IMAGE == 'true'
       run: |
@@ -50,7 +51,6 @@ jobs:
         mkdir gcc-aosp
         wget https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/606f80986096476912e04e5c2913685a8f2c3b65.tar.gz
         tar -C gcc-aosp/ -zxvf 606f80986096476912e04e5c2913685a8f2c3b65.tar.gz
-
     - name: Download kernel source
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace
