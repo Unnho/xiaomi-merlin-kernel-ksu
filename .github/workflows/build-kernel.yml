@@ -36,7 +36,7 @@ jobs:
         echo "BUILD_TIME=$(TZ=Asia/Shanghai date "+%Y%m%d%H%M")" >> $GITHUB_ENV
         echo "DEVICE=$(echo ${{ env.KERNEL_DEFCONFIG }} | sed 's!vendor/!!;s/_defconfig//;s/_user//;s/-perf//')" >> $GITHUB_ENV
         dnf group install development-tools -y
-        dnf install llvm lld bc bison ca-certificates curl flex glibc-devel.i686 glibc-devel binutils-devel openssl python3 python2 zstd clang gcc-arm-linux-gnu dtc libxml2 libarchive openssl-devel perl tomsfastmath-devel w
+        dnf install llvm lld bc bison ca-certificates curl flex glibc-devel.i686 glibc-devel binutils-devel openssl python3 python2 zstd clang gcc-arm-linux-gnu dtc libxml2 libarchive openssl-devel perl tomsfastmath-devel
         mkdir -p $GITHUB_WORKSPACE/kernel_workspace
 
     - name: Download Clang Toolchain
